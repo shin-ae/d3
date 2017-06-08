@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		.styleClass{stroke: blue}
+	</style>
+
+</head>
+<body>
+<div>
+	<svg width=600 height=300>
+		<!-- d 속성으로 외각선을 긋는다 -->
+		<!-- M 시작 포인트 L 라인 그리기 Z 시작한 위치로 다시 선을 그어라 -->
+		<!-- ML 대문자를 쓰면 절대위치 ml 소문자를 쓰면 상대위치로 계산한다 -->
+		<!-- path 를 만들다가 다시 m을 만나면 새로운 path를 그리기 시작한다 -->
+		<!-- H h 수평선 V v 수직선 -->
+		<path d="M100,160 L160,100 L220,160 z" fill=lime stroke-with=3 stroke=blue />
+	</svg>
+	<svg widht=600 height=300>
+		<path d="M100,200 l50,-100 l100,0 L300,200 z m-50,10 l-50,-50" fill=lime stroke-with=3 stroke=blue />
+	</svg>
+</div>
+<div>
+	<svg width=600 height=600>
+		<path d="M100,160 L160,100 H220" fill=none stroke-width=3 stroke=blue />
+		<path d="M100,260 L160,200 H220 V260" fill=none stroke-width=3 stroke=blue />
+		<path d="M100,360 L160,300 H220 L220,360" fill=none stroke-width=3 stroke=blue />
+		<path d="M100,460 L160,400 H220 L220,460 Z" fill=none stroke-width=3 stroke=blue />
+	</svg>
+	<svg width=600 height=600>
+		<path d="M100,160 L160,100 H220 L220,160 Z l0,100 l100,0 Z" fill=none stroke-width=3 stroke=blue />
+		<path d="M100,360 L160,300 H220 L220,360 Z M100,460 l0,100 l100,0 Z" fill=none stroke-width=3 stroke=blue />
+	</svg>
+</div>
+<div>
+	<!-- rx, ry, x-axis-rotation, large-arc-flag, sweep-flag, x, y -->
+	<!-- x축 회전각도 -->
+	<svg width=600 height=600>
+		<path d="M200,100 A50,50 0 1,0 200,150" fill=none stroke-width=3 stroke=blue />
+	</svg>
+	<svg width=500 height=400>
+		<g fill=none stroke-width=3>
+			<line x1=100 y1=100 x2=150 y2=100 stroke=red />
+
+		</g>
+	</svg>
+</div>
+<div>
+	<svg width=600 height=600>
+		<g fill=none stroke-width=3>
+			<line x1=100 y1=80 x2=100 y2=500 stroke=orange />
+			<line x1=150 y1=80 x2=150 y2=500 stroke=orange />
+
+			<path d="M100,100 A50,50 0 1,0 150,100" stroke=blue />
+			<!-- M100,200 과 150,300 에서 끝의 Y좌표값이 100픽셀 크다 -->
+			<path d="M100,200 A50,50 0 1,0 150,300" stroke=blue />
+			<path d="M100,320 A50,50 0 1,0 150,470" stroke=blue />
+		</g>
+	</svg>
+</div>
+</body>
+</html>

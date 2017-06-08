@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script>
+	window.onload = function(){
+		var node = document.getElementById('pathID');
+		var hash = node.getBoundingClientRect();
+		console.log(hash.width);
+		console.log(hash.height);
+		console.log(hash.top);
+		console.log(hash.right);
+		console.log(hash.bottom);
+		console.log(hash.left);
+	}
+</script>
+
+<body>
+	<svg width=500 height=400>
+		<path id="pathID" d="M150,100 A100,50 0 1,0 250,170" fill=lime stroke-width=3 stroke=blue />
+	</svg>
+</body>
+</html>

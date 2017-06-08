@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>가로막대그래프</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        svg {width:320px; height:240px; border:1px solid black;}
+        rect {fill: orange; stroke: white;}
+    </style>
+</head>
+<body>
+    <svg>
+        <rect id="bar" x="0" y="50" width="100" height="25" />
+    </svg>
+
+    <script>
+        d3.select("#bar")
+        //     .attr({
+        //     x : "10px",
+        //     y : "50px",
+        //     width : "200px",
+        //     height : "30px",
+        // })
+        //이건 왜 트랜지숀이 안될까....
+        .attr("x", "10px")
+        .attr("y", "50px")
+        .attr("width", "200px")
+        .attr("height", "30px")
+        .transition()
+        .duration(3000)
+        .attr("width", "50px")
+        .style("fill","red")
+        .style("stroke","black")
+        //스타일 지정 가능
+    </script>
+</body>
+</html>

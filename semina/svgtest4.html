@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		.styleClass{stroke: blue}
+	</style>
+
+</head>
+<body>
+	<svg width=600 height=200>
+	<polyline fill='none' stroke-width="30" stroke="blue" stroke-linejoin="miter" points='100,160 150,110 200,160' />
+		<line x1='130' y1='110' x2='150' y2='130' stroke="red" />
+		<line x1='150' y1='130' x2='170' y2='110' stroke="red" />
+	<polyline fill='none' stroke-width="30" stroke="blue" stroke-linejoin="miter" points='100,260 150,210 200,260' />
+	<polyline fill='none' stroke-width="30" stroke="blue" stroke-linejoin="miter" points='100,360 150,310 200,360' />
+	</svg>
+	<svg width=600 height=400>
+		<polyline fill="none" stroke-width="20" stroke="blue" stroke-linejoin="miter" points="100,150 150,100 130,150" />
+		<polyline fill="none" stroke-width="20" stroke="blue" stroke-linejoin="miter" points="120,300 170,250 150,300" stroke-miterlimit="5" />
+	</svg>
+	<svg width=600 height=400>
+		<line x1="100" y1="100" x2="300" y2="100" stroke="blue" stroke-width="10" stroke-dasharray="90,10" />
+		<line x1="100" y1="150" x2="300" y2="150" stroke="blue" stroke-width="10" stroke-dasharray="90,10" stroke-dashoffset="50" />
+	</svg>
+</body>
+</html>

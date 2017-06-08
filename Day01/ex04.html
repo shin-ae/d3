@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		svg{
+			height: 500px;
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 패스 그리기 path -->
+	<!-- 
+		* 이동 관련 속성(새로 시작)
+		M : 절대 x,y 좌표 
+		m : 상대 x,y 좌표
+
+		* 패스 제어관련
+		Z,z : 패스 닫음
+
+		* 직선 관련 속성
+		L : 절대 x,y 좌표
+		l : 상대 x,y 좌표
+
+		* 곡선 관련 속성
+		C : 절대 x,y 좌표1, 절대 x,y 좌표2, 절대 x,y 좌표3
+		c : 상대 x,y 좌표1, 상대 x,y 좌표2, 상대 x,y 좌표3
+
+		* 타원 관련 속성
+		A : 가로 반지름, 세로 반지름, 회전 각도, 긴 호 그래프1, 짧은 호 그래프, 절대 x,y 좌표
+		a : 가로 반지름, 세로 반지름, 회전 각도, 긴 호 그래프1, 짧은 호 그래프, 상대 x,y 좌표
+	-->
+	<svg>
+		<!--<line x1=150 y1=80 x2=150 y2=500 stroke=orange />-->
+		<!--<path d="M80,50 L220,90 L280,200 Z" fill=none stroke-width=1 stroke=blue></path>-->
+		<!--<path d="M10,110 C80,-100 150,80 300,110"></path>-->
+		<!--<path d="M100,460 L160,400 H220 L220,460 Z" fill=none stroke-width=3 stroke=blue />-->
+		<path d="M100,30 l100,0 l50,100 l-200,0 z" stroke-width=3 stroke=blue fill=none>
+
+	</svg>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		.styleClass{stroke: blue}
+	</style>
+
+</head>
+<body>
+	<svg width=600 height=400>
+		<line x1='20' y1='10' x2='120' y2='10' stroke="blue" stroke-width='5'/>
+		<line x1='20' y1='30' x2='120' y2='30' stroke="blue" stroke-width='5'/>
+		<line x1='20' y1='60' x2='120' y2='60' stroke="#00f" stroke-width='5'/>
+
+		<line x1='20' y1='90' x2='120' y2='90' stroke="rgb(0,0,255)" stroke-width='5'/>
+		<line x1='20' y1='120' x2='120' y2='120' stroke="rgb(0%, 0%, 100%)" stroke-width='5'/>
+		<line x1='20' y1='150' x2='120' y2='150' stroke="rgba(0,0,255,0.3)" stroke-width=5 />
+
+		<!-- 선을 그릴때 기준선에서 두께의 반 만큼 위 아래로 그린다 -->
+		<line x1='10' y1='270' x2='110' y2='270' stroke="lime" stroke-width='40'/>
+		<line x1='30' y1='270' x2='150' y2='270' stroke="blue" stroke-width='1'/>
+	</svg>
+</body>
+</html>

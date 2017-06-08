@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>가로막대그래프</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        svg {width:320px; height:240px; border:1px solid black;}
+        rect {fill: orange;}
+    </style>
+</head>
+<body>
+    <div id="my"></div>
+
+    <script>
+        // d3.select("#my")
+        //   .append("svg")
+        //   .append("rect") 
+        //하위에 하나씩 추가시 
+
+        var svg1 = d3.select("#my")
+        .append("svg")
+        svg1.append("rect")
+        svg1.append("rect")
+        //하위에 두개 추가하고 싶을 떄 
+
+        .attr("x", "10px")
+        .attr("y", "50px")
+        .attr("width", "200px")
+        .attr("height", "30px")
+        //rect에 스타일추가 x, y, width, height 요소 추가 가능  
+        //마지막 rect요소에 적용
+    </script>
+</body>
+</html>

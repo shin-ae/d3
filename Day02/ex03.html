@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>가로막대그래프_다양한 스타일 지정 방법</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        svg {width:320px; height:240px; border:1px solid black;}
+        rect {fill: orange; stroke: white;}
+        .bar_red{fill:blue;}
+    </style>
+</head>
+<body>
+    <svg>
+        <rect class="bar" x="0" y="10" width="60" height="25" />
+        <rect class="bar" x="0" y="50" width="100" height="25" />
+        <rect class="bar" x="0" y="90" width="160" height="25" />
+        <rect class="bar" x="0" y="130" width="220" height="25" />
+    </svg>
+
+    <script>
+        d3.select(".bar")
+        // d3.selectAll(".bar")
+            // .style("fill", "red")
+            // .style("stroke", "balck")
+            //style로 하나씩 지정
+
+            // .attr("class", "bar_red")
+            //css로 스타일 지정
+
+            .attr("style", "fill:red;stroke:black")
+            //attr()메서드로 한꺼번에 스타일 지정
+    </script>
+</body>
+</html>

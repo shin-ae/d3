@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script>
+	window.onload = function(){
+		var node = document.getElementByid('targetID');
+		var btn1 = document.getElementByid('btn1');
+		var btn2 = document.getElementByid('btn2');
+
+		btn1.onclick = function(event){
+			var viewbox = node.viewBox.baseVal;
+			var value = Number(viewbox.width) - Math.round(Number(viewbox.width) * 0.1);
+			node.viewBox.baseVal.width = value;
+			node.viewbox.baseVal.height = value;
+		}
+	}
+
+</script>
+<body>
+<div>
+<button id="btn1">확대</button>
+<button id="btn2">축소</button>
+	<svg width=150 height=150 viewBox="0 0 300 300">
+		<rect x=0 y=0 width=150 height=150 fill=none stroke=red />
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=150 cy=0 r=50 fill=green />
+		<circle cx=75 cy=75 r=50 fill=blue />
+		<circle cx=0 cy=150 r=50 fill=pink />
+		<circle cx=150 cy=150 r=50 fill=gray />
+	</svg>
+	<svg width=150 height=150 viewBox="-50 -50 250 250">
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=150 cy=0 r=50 fill=green />
+		<circle cx=75 cy=75 r=50 fill=blue />
+		<circle cx=0 cy=150 r=50 fill=pink />
+		<circle cx=150 cy=150 r=50 fill=gray />
+		<rect x=0 y=0 width=150 height=150 fill=none stroke=red />
+	</svg>
+</div>
+</body>
+</html>

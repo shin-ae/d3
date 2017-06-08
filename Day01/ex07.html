@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		svg{
+			height: 1000px;
+			width: 1000px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 그룹 -->
+	<!--
+		transform 속성
+		translate(x,y) : 상대적 위치로 이동
+		scale(x,y) : 확대/축소
+			예) 가로 2배, 세로 3배 : scale(2,3)
+		rotate(d, x, y) : 반시계방향 회전 x,y는 회전 중심좌표
+			예) rotate(-45);
+		g 그룹으로 묶음
+	-->
+	<svg>
+		<!--<g style="opacity:0.25">-->
+		<!--<g transform="translate(-200, 40)">-->
+		<!--<g transform="scale(2,3)">-->
+		<g transform="rotate(-45, 100, 100)">
+			<line x1="250" y1="150" x2="250" y2="350" stroke=black></line>
+			<line x1="150" y1="250" x2="350" y2="250" stroke=black></line>
+		</g>
+	</svg>
+</body>
+</html>

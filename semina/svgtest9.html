@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div>
+	
+	<svg width=500 height=300>
+		<g fill=none stroke-width=5>
+			<path d="M30,150 H250" stroke=lime />
+			<path d="M30,250 L130,80 L230,250" stroke=orange />
+			<!-- 2차 베지어 곡선 -->
+			<!-- 2차 베지어곡선 점 대칭 T -->
+			<path d="M30,250 Q130,50 230,250" stroke=blue />
+		</g>
+	</svg>
+	<svg width=300 height=300>
+		<g fill=none stroke-width=5>
+			<!-- 3차 베지어 곡선 -->
+			<rect x=50 y=100 width=100 height=100 stroke=red stroke-width=2 fill=none />
+			<path d="M50,200 C50,100 150,100 150,200" stroke-width=5 stroke=blue fill=none />
+		</g>
+	</svg>
+	<svg widht=300 height=300>
+		<g fill=none stroke-width=5>
+			<!-- 3차 베지어 곡선 대칭 S 변수 -->
+			<rect x=50 y=100 width=100 height=100 stroke=red stroke-width=2 fill=none />
+			<path d="M50,200 C50,100 150,100 150,200 S250,300 250,200" stroke-width=5 stroke=blue fill=none />
+		</g>
+	</svg>
+</div>
+
+<div>
+	<!-- view box -->
+	<!-- 
+	min-x 이미지를 표시 할 x 좌표
+	min-y 이미지를 표시 할 y 좌표
+	width 표시할 이미지 너비
+	height 표시할 이미지 높이 
+	-->
+	<svg width=200 height=200 viewBox="0 0 200 200">
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=200 cy=0 r=50 fill=green />
+		<circle cx=100 cy=100 r=50 fill=blue />
+		<circle cx=0 cy=200 r=50 fill=pink />
+		<circle cx=200 cy=200 r=50 fill=gray />
+		<rect x=0 y=0 width=200 height=200 fill=none stroke=red />
+	</svg>
+	<svg width=200 height=200 viewBox="-50 -50 200 200">
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=200 cy=0 r=50 fill=green />
+		<circle cx=100 cy=100 r=50 fill=blue />
+		<circle cx=0 cy=200 r=50 fill=pink />
+		<circle cx=200 cy=200 r=50 fill=gray />
+		<rect x=0 y=0 width=200 height=200 fill=none stroke=red />
+	</svg>
+	<svg width=200 height=200 viewBox="50 50 200 200">
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=200 cy=0 r=50 fill=green />
+		<circle cx=100 cy=100 r=50 fill=blue />
+		<circle cx=0 cy=200 r=50 fill=pink />
+		<circle cx=200 cy=200 r=50 fill=gray />
+		<rect x=0 y=0 width=200 height=200 fill=none stroke=red />
+	</svg>
+	<svg width=200 height=200 viewBox="-50 50 200 200">
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=200 cy=0 r=50 fill=green />
+		<circle cx=100 cy=100 r=50 fill=blue />
+		<circle cx=0 cy=200 r=50 fill=pink />
+		<circle cx=200 cy=200 r=50 fill=gray />
+		<rect x=0 y=0 width=200 height=200 fill=none stroke=red />
+	</svg>
+	<svg width=200 height=200 viewBox="50 -50 200 200">
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=200 cy=0 r=50 fill=green />
+		<circle cx=100 cy=100 r=50 fill=blue />
+		<circle cx=0 cy=200 r=50 fill=pink />
+		<circle cx=200 cy=200 r=50 fill=gray />
+		<rect x=0 y=0 width=200 height=200 fill=none stroke=red />
+	</svg>
+</div>
+<div>
+	<svg width=200 height=200 viewBox="-50 -50 300 300">
+		<circle cx=0 cy=0 r=50 fill=lime />
+		<circle cx=200 cy=0 r=50 fill=green />
+		<circle cx=100 cy=100 r=50 fill=blue />
+		<circle cx=0 cy=200 r=50 fill=pink />
+		<circle cx=200 cy=200 r=50 fill=gray />
+		<rect x=0 y=0 width=200 height=200 fill=none stroke=red />
+	</svg>
+</div>
+<div>
+	<svg width=300 height=300>
+		<rect x=50 y=50 width=100 height=100 fill=none stroke=black />
+		<!-- translate -->
+		<rect x=50 y=50 width=100 height=100 fill=lime stroke=blue transform="translate(50,50)" />
+		<!-- rotate -->
+		<rect x=50 y=50 width=100 height=100 fill=none stroke=black transform="rotate(45,135,85)" fill=yellow />
+		<!-- matrix -->
+		<!-- 
+		a: x축 확대 축소
+		b: y축 기울기
+		c: x 축 기울기
+		d: 
+		 -->
+	</svg>
+</div>
+<div>
+	<svg width=400 height=400>
+		<rect x=0 y=0 width=50 height=50 fill=yellow stroke=blue />
+		<rect x=0 y=50 width=50 height=50 transform="matrix(1,0,0,1,50,150)" fill=blue />
+		<rect x=50 y=50 width=50 height=50 transform="matrix(1,0,0,1,50,150)" fill=blue />
+	</svg>
+</div>
+<div>
+	<!-- text -->
+	<svg width=500 height=400>
+		<text x=60 y=150 font-size=34>여행 괜찮음</text>
+		<line x1=50 y1=150 x2=250 y2=150 stroke=orange stroke-width=1 />
+
+		<text x=60 y=220 font-size=34>didaojfsdoijf;asidf</text>
+		<text x="40 70 110 150" y="20 40 50 70">가나다라</text>
+	</svg>
+	<!-- dx dy -->
+	<!-- textlength -->
+	<!-- lengthAdjust -->
+	<!-- rotate -->
+	<!-- text-anchor -->
+	<!-- writing-mode 세로쓰기 -->
+	<!-- spacing word-spacing  -->
+	<!-- text 에 fill, stroke, stroke-dasharray 사용 -->
+
+</div>
+</body>
+</html>
