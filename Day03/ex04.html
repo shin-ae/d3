@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>html 파일 불러오기</title>
+    <title>단순 텍스트 파일 불러오기</title>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
@@ -25,13 +25,13 @@
     <svg id="graph"></svg>
 
     <script>
-        d3.html("mydata.html", function(error, docFragment) {
-            //table요소에서 tr요소 추출
-            var tr = docFragment.querySelectorAll("table tr");
+        d3.text("mydata.txt", function(error, plainText) {
+            var data = plainText.split("\x0a"); //\x0a는 줄바꿈 코드
             var dataSet = [];
-            for (var i = 1; i < data.length; i++) { //헤더는 무시
-                var d = tr[i].querySelectorAll("td")[0].firstChild.nodeValue;
-                dataSet.push(d);
+            var sales = data[0].split("/"); //처음 1줄을 /구분자로 나누어 데이터를 분할
+
+            for (var i = 1; i < sales.length; i++) {
+                dataSet.push(sales[i]); //A의 sales데이터 추출
             }
 
             //그래프 그리기

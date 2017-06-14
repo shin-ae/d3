@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>html 파일 불러오기</title>
+    <title>xml 파일 불러오기</title>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
@@ -25,12 +25,14 @@
     <svg id="graph"></svg>
 
     <script>
-        d3.html("mydata.html", function(error, docFragment) {
-            //table요소에서 tr요소 추출
-            var tr = docFragment.querySelectorAll("table tr");
-            var dataSet = [];
-            for (var i = 1; i < data.length; i++) { //헤더는 무시
-                var d = tr[i].querySelectorAll("td")[0].firstChild.nodeValue;
+        d3.xml("mydata.xml", function(error, xmlRoot) {
+            var xmlData = xmlRoot.querySelectorAll("data"); //data요소를 추출
+            var salesRoot = xmlData[0]; ///상품A의 데이터 요소만 추출
+            var salesData = salesRoot.querySelectoAll("sales"); //sales 요소만 추출
+            var dataSet = []; //데이터를 저장할 배열 준비
+
+            for (var i = 0; i < salesData.length; i++) {
+                var d = salesData[i].firstChild.nodeValue;
                 dataSet.push(d);
             }
 
