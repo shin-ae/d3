@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>데이터 불러오기</title>
+    <title>json 파일 불러오기</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <style>
         svg {width:320px; height:240px; border:1px solid black;}
@@ -15,19 +16,14 @@
     <svg id="graph"></svg>
 
     <script>
-        d3.csv("mydata_ko.csv")
-            .row(function(d){
-                return{
-                    item1 : d["상품A"],
-                    item2 : d["상품B"],
-                    item3 : d["상품C"],
-                }
-            })
-            .get(function(error, data){
-                var dataSet = [];
-                for(var i=0; i<data.length; i++){
-                    dataSet.push(data.item1)
-                }
+        d3.html("mydata.html", function(error, docFragment){
+            //table요소에서 tr요소 추출
+            var tr = docFragment.querySelectorAll("table tr");
+            var dataSet=[ ];
+            for(var i=1; i<data.length; i++){ //헤더는 무시
+                var d=tr[i].querySelectorAll("td")[0].firstChild.nodeValue;
+                dataSet.push(d);
+            }        
 
         //그래프 그리기
         d3.select("#graph")
