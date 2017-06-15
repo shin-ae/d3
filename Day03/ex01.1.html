@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>json 파일 불러오기</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        svg {width:320px; height:240px; border:1px solid black;}
+        .bar {fill: orange;}
+    </style>
+</head>
+<body>
+    <svg id="graph"></svg>
+
+    <script>
+        d3.json("mydata.json", function(error, data){
+            var dataSet=[];
+            var dataLen = data.length;
+            for (var i=0; i<dataLen; i++){
+                dataSet.push(data[i].sales[0]);
+            }
+
+            d3.select("#graph")
+                .selecAll("rect")
+                .data(dataSet)
+                .enter()
+                .append("rect")
+                .attr("class", "bar")
+                .attr("width", function(d,i){
+                    return d;
+                })
+                .attr("height", 20)
+                .attr("x", 0)
+                .attr("y", function(d,i){
+                    return i*25
+                })
+        })
+    </script>
+</body>
+</html>

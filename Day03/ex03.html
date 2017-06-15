@@ -28,7 +28,7 @@
         d3.xml("mydata.xml", function(error, xmlRoot) {
             var xmlData = xmlRoot.querySelectorAll("data"); //data요소를 추출
             var salesRoot = xmlData[0]; ///상품A의 데이터 요소만 추출
-            var salesData = salesRoot.querySelectoAll("sales"); //sales 요소만 추출
+            var salesData = salesRoot.querySelectorAll("sales"); //sales 요소만 추출
             var dataSet = []; //데이터를 저장할 배열 준비
 
             for (var i = 0; i < salesData.length; i++) {

@@ -26,12 +26,37 @@
 
     <script>
         d3.text("my_data.txt", function(error, plainText) {
-            var dataSet = d3.dsv("_", "text/plain").parse(plainText);
+            var data = d3.dsvFormat("_", "text/plain").parse(plainText);
+
+            var dataSet = data[0];
+            var temp = [];
+            var arr = [1,2,3,4,5];
+
+            arr.map(function(data){
+                console.log(data);
+            })
+
+            // arr.map(data=>{
+            //     console.log(data);
+            // })
+
+            console.log(dataSet);
+            console.log(Object.keys(dataSet));
+            Object.keys(dataSet).map(key=>{
+                temp.push(dataSet[key]);
+            });
+
+            temp = Object.keys(dataSet).map(key=>{
+                return dataSet[key];
+            });    
+
+            //map은 반복함수 map안에 콜백함수 그 콜백함수는 arry의 인자값들을 하나씩 가져옴
+            //콜백함수 안에서 비지니스 로직을 작성
 
             //그래프 그리기
             d3.select("#graph")
                 .selectAll("rect")
-                .data(dataSet) //데이터를 요소에 연결
+                .data(temp) //데이터를 요소에 연결
                 .enter() //데이터 개수만큼 반복
                 .append("rect") //데이터 개수만큼 rect요소 추가 
                 .attr("class", "bar")

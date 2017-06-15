@@ -29,7 +29,7 @@
             //table요소에서 tr요소 추출
             var tr = docFragment.querySelectorAll("table tr");
             var dataSet = [];
-            for (var i = 1; i < data.length; i++) { //헤더는 무시
+            for (var i = 1; i < tr.length; i++) { //헤더는 무시
                 var d = tr[i].querySelectorAll("td")[0].firstChild.nodeValue;
                 dataSet.push(d);
             }
