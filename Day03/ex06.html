@@ -34,9 +34,14 @@
             .enter() //데이터 개수만큼 반복
             .append("rect") //데이터 개수만큼 rect요소 추가 
             // .datum(999) //999의 데이터를 모든 요소에 설정
-            // .datum(function() {
-            //     return Math.random();
-            // })
+            .datum(function() {
+                var temp = Math.random()*100;
+                console.log(temp);
+                console.log(Math.ceil(Math.random()*100));//올림
+                console.log(Math.floor(Math.random()*100));//버림
+                console.log(Math.round(Math.random()*100));//반올림
+                return Math.floor(temp);
+            })
             .datum(function(d, i) {
                 console.log(i + " = " + d);
                 return d;
