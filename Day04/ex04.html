@@ -42,7 +42,9 @@
 </body>
 <script>
     var svgHeight = 240; //svg 영역의 높이 
-    
+    var offsetX = 30;
+    var offsetY = 10;
+
     var barElements; //막대그래프의 막대 요소를 저장할 변수
     var dataSet = [120, 70, 175, 80, 220];
     barElements = d3.select("#myGraph")
@@ -57,12 +59,12 @@
         })
         .attr("width", 20)
         .attr("x", function(d, i) {
-            return i * 25;
+            return i * 25 + offsetX;
         })
         .transition()
         .duration(1000)
         .attr("y", function(d, i) {
-            return svgHeight - d; //위에서 부터 그래프가 그려지는 형식
+            return svgHeight - d-offsetY; //위에서 부터 그래프가 그려지는 형식
         })
 
     //text요소 지정
@@ -70,10 +72,10 @@
         .append("text")
         .attr("class", "barNum")
         .attr("x", function(d, i) {
-            return i * 25 + 10; //간격 맞추기
+            return i * 25 + 10 + offsetX; //간격 맞추기
         })
         .attr("y", function(d, i) {
-            return svgHeight - 5;
+            return svgHeight - 5 - offsetY;
         })
         .text(function(d, i) {
             return d;
@@ -86,7 +88,7 @@
 
     d3.select("#myGraph").append("g")
         .attr("class", "axis")
-        .attr("transform", "translate(30,0)")
+        .attr("transform", "translate("+offsetX+", "+((svgHeight-300)-offsetY)+")")
         .call(
             d3.svg.axis()
             .scale(yScale)
