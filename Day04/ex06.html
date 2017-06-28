@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>막대 위치 수정</title>
+    <title>그래프 범용화</title>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <style>
@@ -33,20 +33,35 @@
             fill: none;
             stroke: black;
         }
+        
+        .axis_x line {
+            fill: none;
+            stroke: black;
+        }
+        
+        .barName {
+            font-size: 9pt;
+            text-anchor: middle;
+        }
     </style>
 </head>
 
 <body>
-    <h1>그래프 안에 숫자 표시</h1>
+    <h1>그래프범용화</h1>
     <svg id="myGraph"></svg>
 </body>
 <script>
+    //그래프에서 사용할 수치를 변수에 입력
+    var svgWidth = 320;
     var svgHeight = 240; //svg 영역의 높이 
-    var offsetX = 40;
-    var offsetY = 10;
-
+    var offsetX = 30;
+    var offsetY = 20;
     var barElements; //막대그래프의 막대 요소를 저장할 변수
-    var dataSet = [120, 70, 175, 80, 220];
+    var dataSet = [120, 70, 175, 80, 220, 40, 180, 70, 90];
+    var dataMax = 300;
+    var barWidth = 20;
+    var barMargin = 5;
+
     barElements = d3.select("#myGraph")
         .selectAll("rect")
         .data(dataSet)
@@ -57,9 +72,9 @@
         .attr("height", function(d, i) {
             return d;
         })
-        .attr("width", 20)
+        .attr("width", barWidth)
         .attr("x", function(d, i) {
-            return i * 25 + offsetX + 15;
+            return i * (barWidth + barMargin) + offsetX + 15;
         })
         .transition()
         .duration(1000)
@@ -72,7 +87,7 @@
         .append("text")
         .attr("class", "barNum")
         .attr("x", function(d, i) {
-            return i * 25 + 25 + offsetX; //간격 맞추기
+            return i * (barWidth + barMargin) + 25 + offsetX; //간격 맞추기
         })
         .attr("y", function(d, i) {
             return svgHeight - 5 - offsetY;
@@ -83,8 +98,8 @@
 
     //눈금을 표시하기 위해 스케일 설정
     var yScale = d3.scale.linear()
-        .domain([0, 3000])
-        .range([300, 0])
+        .domain([0, dataMax])
+        .range([dataMax, 0])
 
     d3.select("#myGraph").append("g")
         .attr("class", "axis")
@@ -96,6 +111,25 @@
             // orient에 따라 눈금의 위치를 정할 수 있음
             // top, bottom, left, right
         )
+
+    //가로 방향의 선을 표시 
+    d3.select("#myGraph")
+        .append("rect")
+        .attr("class", "axis_x")
+        .attr("width", 320)
+        .attr("height", 1)
+        .attr("transform", "translate(" + offsetX + ", " + (svgHeight - offsetY) + ")")
+        //막대의 레이블 표시
+    barElements.enter()
+        .append("text")
+        .attr("class", "barName")
+        .attr("x", function(d, i) {
+            return i * 25 + 25 + offsetX;
+        })
+        .attr("y", svgHeight - offsetY + 15)
+        .text(function(d, i) {
+            return ["A", "B", "C", "D", "E", "F", "G", "H", "I"][i];
+        })
 </script>
 
 </html>
