@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>원 그래프 그리기</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <style>
+        svg {
+            width: 320px;
+            height: 240px;
+            border: 1px solid black;
+        }
+        .pie{
+            fill:orange; stroke:black;
+        }
+        .total{
+            font-size: 9px; text-anchor: middle;
+        }
+        .pieNum{
+            font-size: 10px; text-anchor: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>원 그래프 표시</h1>
+    <svg id="myGraph"></svg>
+</body>
+<script>
+    var svgWidth = 320;
+    var svgHeight = 240;
+    var dataSet = [50, 30, 12, 5, 3];
+    // var color = d3.scale.category10();
+ 
+    //원 그래프의 좌표값을 계산하는 메서드
+    var pie = d3.layout.pie() //원 그래프 레이아웃
+        .value(function(d, i){return d;})
+    //원 그래프의 안쪽 반지름, 바깥쪽 반지름 설정
+    var arc = d3.svg.arc().innerRadius(30).outerRadius(100);
+
+    //원 그래프 그리기
+    var pieElements = d3.select("#myGraph")
+        .selectAll("g")  //g요소를 지정
+        .data(pie(dataSet)) //데이터 요소를 연결
+        .enter()
+        .append("g")
+        .attr("transform", "translate("+svgWidth/2+", "+svgHeight/2+")")
+
+        //데이터 추가
+    pieElements
+        .append("path")     //데이터 수만큼 반복
+        .attr("class", "pie")   //데이터 수만큼 path 요소가 추가됨
+        //색 지정, 데이터 순서에 따라서 색반환
+        .style("fill", function(d,i){
+            return ["red", "orange", "yellow", "cyan", "#3f3"][i];
+            // return color(i);
+            // d3가 미리 마련해 놓은 색으로 지정
+        })
+        //애니메이션 표시
+        .transition()
+        .duration(500)
+        .delay(function(d,i){
+            return i*500;
+        })
+        .ease("linear")
+        .attrTween("d", function(d, i){
+            var interpolate = d3.interpolate(
+                //각 부분의 시작각도
+                {startAngle : d.startAngle, endAngle : d.startAngle},
+                //각 부분의 종료 각도
+                {startAngle : d.startAngle, endAngle : d.endAngle}
+            );
+            return function(t){
+                return arc(interpolate(t)); //시간차에따라 처리
+                //interpolate로 좌표값을 구함
+            }
+        })
+        //합계의 수와 문자를 표시 
+        var textElements = d3.select("#myGraph")
+            .append("text")
+            .attr("class", "total")
+            //중심에 표시
+            .attr("transform", "translate("+svgWidth/2+", "+(svgHeight/2+5)+")")
+            .text("함계:" + d3.sum(dataSet))
+        pieElements
+            .append("text")
+            .attr("class", "pieNum")
+            .attr("transform", function(d,i){
+                //부채꼴의 중심으로 무게중심을 계산?
+                return "translate("+arc.centroid(d)+")";
+            })
+            .text(function(d, i){
+                return d.value; //값표시
+            })
+
+</script>
+
+</html>
