@@ -81,12 +81,12 @@
 
     //눈금을 표시하기 위해 스케일 설정
     var yScale = d3.scale.linear()
-        .domain([0, 3000])
-        .range([300, 0])
+        .domain([0, 300])//범위
+        .range([300, 0])//총길이
 
     d3.select("#myGraph").append("g")
         .attr("class", "axis")
-        .attr("transform", "translate(30,0)")
+        .attr("transform", "translate(30,0)")//x,y값
         .call(
             d3.svg.axis()
             .scale(yScale)

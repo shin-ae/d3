@@ -79,9 +79,9 @@
         .attr("y", svgHeight - offsetY)
         .transition()
         .duration(1000)
-        .delay(function(d, i) {
-            return (i + 1) * 100; //delay() 메서드에 함수를 지정하여 대기시간 조정
-        })
+        // .delay(function(d, i) {
+        //     return (i + 1) * 100; //delay() 메서드에 함수를 지정하여 대기시간 조정
+        // })
         .attr("y", function(d, i) {
             return svgHeight - d - offsetY; //y좌표를 계산
         })
